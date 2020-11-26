@@ -8,8 +8,6 @@ public interface ITeacherService {
     void deleteTeacher(String id);
     void insertTeacher(Teacher teacher);
     void updateTeacher(Teacher teacher);
-    List<Teacher> findTeacherByMinAge(int minAge);
-    List<Teacher> findTeacherBySex(String sex);
-    List<Teacher> findTeacherByDname(String dName);
+    List<Teacher> findTeacherByContidion(Integer minAge,  String sex, String dName);
 
 }

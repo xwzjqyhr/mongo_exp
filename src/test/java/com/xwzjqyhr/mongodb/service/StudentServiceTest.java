@@ -52,27 +52,7 @@ public class StudentServiceTest {
        List<Student> students = studentService.findAllStudent();
         System.out.println(JSON.toJSONString(students));
     }
-    @Test
-    public void findStudentByMaxAge() {
-        List<Student> students = studentService.findStudentByMaxAge(20);
-        System.out.println(JSON.toJSONString(students));
-    }
-    @Test
-    public void findStudentByMaxAgeAndDname() {
-        List<Student> students = studentService.findStudentByMaxAgeAndDname(20,"CS");
-        System.out.println(JSON.toJSONString(students));
-    }
-    @Test
-    public void  findStudentNameAgeColume() {
-        List<Student> students = studentService.findStudentNameAgeColume();
-        System.out.println(JSON.toJSONString(students));
 
-    }
-    @Test
-    public void findStudentNameAgeColumeByMaxAge() {
-        List<Student> students = studentService.findStudentNameAgeColumeByMaxAge(20);
-        System.out.println(JSON.toJSONString(students));
-    }
 }
 
 

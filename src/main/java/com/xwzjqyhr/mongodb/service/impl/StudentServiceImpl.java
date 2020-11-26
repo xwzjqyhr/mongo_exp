@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,54 +22,35 @@ public class StudentServiceImpl implements IStudentService {
 //        System.out.println(students);
         return students;
     }
-
     @Override
-    public List<Student> findStudentByMaxAge(int maxAge) {
+    public List<Student> findStudentByContidion(Integer maxAge,String dname) {
         Query query = new Query();
         Criteria criteria = new Criteria();
-        criteria.and("age").lt(maxAge);
-        query.addCriteria(criteria);
+        if(maxAge != null) {
+            criteria.and("age").lt(maxAge);
+            query.addCriteria(criteria);
+        }
+        if(dname != null) {
+            criteria.and("dname").is(dname);
+        }
         List<Student> students = mongoTemplate.find(query,Student.class);
         return students;
     }
-
     @Override
-    public List<Student> findStudentByMaxAgeAndDname(int maxAge,String dname) {
-        Query query = new Query();
-        Criteria criteria = new Criteria();
-        criteria.and("age").lt(maxAge);
-        criteria.and("dname").is(dname);
-        query.addCriteria(criteria);
-        List<Student> students = mongoTemplate.find(query,Student.class);
-        return students;
-    }
-
-    @Override
-    public List<Student> findStudentNameAgeColume() {
-        Query query = new Query();
-//      query.fields().equals("name");
-      query.fields().include("name"); //包含该字段
-      query.fields().include("age"); //包含该字段
-//        query.fields().exclude("name");//不包含该字段
-        List<Student> students = mongoTemplate.find(query,Student.class);
-        return students;
-    }
-
-    @Override
-    public List<Student> findStudentNameAgeColumeByMaxAge(int maxAge) {
+    public List<Student> findNameAgeColumeByContidion(Integer maxAge) {
         Query query = new Query();
 //      query.fields().equals("name");
         query.fields().include("name"); //包含该字段
         query.fields().include("sex"); //包含该字段
 //        query.fields().exclude("name");//不包含该字段
         Criteria criteria = new Criteria();
-        criteria.and("age").lt(maxAge);
+        if(maxAge != null) {
+            criteria.and("age").lt(maxAge);
+        }
         query.addCriteria(criteria);
-
         List<Student> students = mongoTemplate.find(query,Student.class);
         return students;
     }
-
     @Override
     public void insertStudent(Student student) {
         mongoTemplate.insert(student);

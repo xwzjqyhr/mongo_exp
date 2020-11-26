@@ -1,5 +1,4 @@
-package com.xwzjqyhr.restaurant.config;
-
+package com.xwzjqyhr.mongodb.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

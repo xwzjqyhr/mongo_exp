@@ -31,13 +31,13 @@ public class CourseServiceImpl implements ICourseService {
     }
 
     @Override
-    public List<Course> findNameColumeByCid(String cid) {
+    public List<Course> findNameColumeByCid(String fid) {
 
         Query query = new Query();
 
         query.fields().include("name");
         Criteria criteria = new Criteria();
-        criteria.and("cid").is(cid);
+        criteria.and("fid").is(fid);
         query.addCriteria(criteria);
         List<Course> courseNames =  mongoTemplate.find(query,Course.class);
         return courseNames;
@@ -50,7 +50,7 @@ public class CourseServiceImpl implements ICourseService {
 
     @Override
     public void updateCourse(Course course) {
-        mongoTemplate.insert(course);
+        mongoTemplate.save(course);
     }
 }
 

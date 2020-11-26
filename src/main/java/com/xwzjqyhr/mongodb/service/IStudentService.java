@@ -10,9 +10,7 @@ public interface IStudentService {
     void updateStudent(Student student);
     void deleteStudent(String id);
     List<Student> findAllStudent();
-    List<Student> findStudentByMaxAge(int maxAge);
-    List<Student> findStudentByMaxAgeAndDname(int maxAge,String dname);
-    List<Student> findStudentNameAgeColume();
-    List<Student> findStudentNameAgeColumeByMaxAge(int aga);
+    List<Student> findStudentByContidion(Integer maxAge,String dname);
+    List<Student> findNameAgeColumeByContidion(Integer maxAge);
 
 }

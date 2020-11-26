@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Getter
 @Setter
@@ -13,6 +14,7 @@ public class Course {
     String id;
     String cid;
     String name;
-    String fcid;
+    @Field("fcid")
+    String fCid;
     Double credit;
 }

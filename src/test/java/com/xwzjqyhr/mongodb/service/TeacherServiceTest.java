@@ -17,19 +17,5 @@ import java.util.List;
 public class TeacherServiceTest {
     @Autowired
     TeacherServiceImpl teacherService;
-    @Test
-    public void findTeacherByMinAge() {
-        List<Teacher> teachers = teacherService.findTeacherByMinAge(44);
-        System.out.println(JSON.toJSONString(teachers));
-    }
-    @Test
-    public void findTeacherBySex() {
-        List<Teacher> teachers = teacherService.findTeacherBySex("M");
-        System.out.println(JSON.toJSONString(teachers));
-    }
-    @Test
-    public void findTeacherByDname() {
-        List<Teacher> teachers = teacherService.findTeacherByDname("CS");
-        System.out.println(JSON.toJSONString(teachers));
-    }
+
 }

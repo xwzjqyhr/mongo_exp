@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Getter
 @Setter
@@ -17,5 +18,6 @@ public class Teacher {
     String name;
     String sex;
     Integer age;
+    @Field("dname")
     String dname;
 }
