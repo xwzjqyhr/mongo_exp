@@ -41,4 +41,8 @@ public class TeacherController {
         return  teacherService.findTeacherByContidion(minAge,sex,dName);
     }
 
+    @RequestMapping(value = "/exp6/2")
+    public void getMaxAvgScore(){
+
+    }
 }

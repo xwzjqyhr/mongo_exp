@@ -2,7 +2,9 @@ package com.xwzjqyhr.mongodb.service;
 
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.xwzjqyhr.mongodb.pojo.Student;
+import com.xwzjqyhr.mongodb.pojo.StudentExp6;
 import com.xwzjqyhr.mongodb.service.impl.StudentServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -52,7 +55,23 @@ public class StudentServiceTest {
        List<Student> students = studentService.findAllStudent();
         System.out.println(JSON.toJSONString(students));
     }
-
+    @Test
+    public void getMaxElementsByAvgScore() {
+        System.out.println("33");
+        List<Map> maps = studentService.getMaxElementsByAvgScore(10);
+        System.out.println("22");
+        System.out.println(JSONObject.toJSONString(maps));
+    }
+    @Test
+    public void getMaxElementsByCourseCount() {
+        List<Map> maps = studentService.getMaxElementsByCourseCount(10);
+        System.out.println(JSONObject.toJSONString(maps));
+    }
+    @Test
+    public void getEveryoneMaxScoreCourse() {
+        List<StudentExp6> maps = studentService.getEveryoneMaxScoreCourse();
+        System.out.println(JSONObject.toJSONString(maps));
+    }
 }
 
 

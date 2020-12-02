@@ -5,14 +5,17 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @Getter
 @Setter
-@Document(collection = "student_course")
-public class StudentCourse {
+@Document(collection = "student_exp6")
+public class StudentExp6 {
+
     @Id
     String id;
     String sid;
-    String cid;
-    String score;
-    String tid;
+    String sname;
+    String sex;
+    String maxScoreCourseName;
+    Double maxScore;
 }

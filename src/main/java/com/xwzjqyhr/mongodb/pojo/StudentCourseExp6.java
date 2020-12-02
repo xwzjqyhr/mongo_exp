@@ -7,12 +7,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
-@Document(collection = "student_course")
-public class StudentCourse {
+@Document(collection = "student_course_exp6")
+public class StudentCourseExp6 {
     @Id
     String id;
     String sid;
     String cid;
-    String score;
-    String tid;
+    String cname;
+    Double credit;
+    Double hours;
+    String property;
+    Double score;
 }
